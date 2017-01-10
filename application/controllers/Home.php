@@ -8,9 +8,10 @@ class Home extends CI_Controller {
 
         $data = array();
         $data['title'] = 'Accueil';
+        $data['logged'] = $this->session->has_userdata('logged_in');
 
         $this->load->view('layout/header',$data);
-        $this->load->view('hello');
+        $this->load->view('index');
         $this->load->view('layout/footer');
     }
 }
