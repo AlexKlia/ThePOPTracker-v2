@@ -36,12 +36,12 @@
         <header id="header" class="col col-xs-12 hidden-sm-down text-center">
             <div class="col col-sm-4 nav-right">
                 <ul class="nav nav-tabs nav-justified  text-center list-inline col-sm-12 navHeader">
-                    <?php if (isset($_SESSION['user'])) : ?>
-                        <li class="col col-sm-4"><a href="#" class="h4 hr">Accueil</a></li>
+                    <?php if ($logged) : ?>
+                        <li class="col col-sm-4"><a href="<?= site_url('Home/index'); ?>" class="h4 hr">Accueil</a></li>
                         <li class="col col-sm-4"><a href="#" class="h4 hr">Categorie</a></li>
                         <li class="col col-sm-4"><a href="#" class="h4 hr">Profil</a></li>
                     <?php else : ?>
-                        <li class="col col-sm-4"><a href="#" class="h4 hr col col-sm-4">Accueil</a></li>
+                        <li class="col col-sm-4"><a href="<?= site_url('Home/index'); ?>" class="h4 hr col col-sm-4">Accueil</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
@@ -50,14 +50,14 @@
             </div>
             <div class="col col-sm-4 nav-left">
                 <ul class="nav nav-tabs nav-justified  text-center list-inline col-sm-12 navHeader">
-                    <?php if (!isset($_SESSION['user'])) : ?>
+                    <?php if (!$logged) : ?>
                         <li class="col col-sm-4"><a href="#" class="h4 hr">Categorie</a></li>
-                        <li class="col col-sm-4"><a href="#" class="h4 hr">Connexion</a></li>
+                        <li class="col col-sm-4"><a href="<?= site_url('user_authentication/login'); ?>" class="h4 hr">Connexion</a></li>
                         <li class="col col-sm-4"><a href="#" class="h4 hr">Inscription</a></li>
                     <?php else : ?>
                         <li class="col col-sm-4"><a href="#" class="h4 hr">Collection</a></li>
                         <li class="col col-sm-4"><a href="#" class="h4 hr">WishList</a></li>
-                        <li class="col col-sm-4"><a href="#" class="h4 hr">Deconnexion</a></li>
+                        <li class="col col-sm-4"><a href="<?= site_url('user_authentication/logout'); ?>" class="h4 hr">Deconnexion</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
@@ -73,24 +73,24 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">The<span class="popTitle">POP</span>Tracker</a>
+                    <a class="navbar-brand" href="<?= site_url('Home/index'); ?>">The<span class="popTitle">POP</span>Tracker</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <?php if (!isset($_SESSION['user'])) : ?>
-                            <li><a href="#">Accueil</a></li>
+                        <?php if (!$logged) : ?>
+                            <li><a href="<?= site_url('Home/index'); ?>">Accueil</a></li>
                             <li><a href="#">Categorie</a></li>
-                            <li><a href="#">Connexion</a></li>
+                            <li><a href="<?= site_url('user_authentication/login'); ?>">Connexion</a></li>
                             <li><a href="#">Inscription</a></li>
                         <?php else : ?>
-                            <li><a href="#">Accueil</a></li>
+                            <li><a href="<?= site_url('Home/index'); ?>">Accueil</a></li>
                             <li><a href="#">Categorie</a></li>
                             <li><a href="#">Collection</a></li>
                             <li><a href="#">WishList</a></li>
                             <li><a href="#">Profil</a></li>
-                            <li><a href="#">Deconnexion</a></li>
+                            <li><a href="<?= site_url('user/logout'); ?>">Deconnexion</a></li>
                         <?php endif; ?>
                     </ul>
                 </div><!-- /.navbar-collapse -->
