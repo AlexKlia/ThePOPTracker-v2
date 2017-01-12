@@ -5,7 +5,8 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>coucou</title>
+
+        <title><?= $title ?></title>
 
         <!-- Google fonts -->
         <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:700|Luckiest+Guy|Roboto:400,400i,700" rel="stylesheet">
