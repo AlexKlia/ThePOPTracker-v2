@@ -11,7 +11,7 @@ class Home extends CI_Controller {
         $data['logged'] = $this->session->has_userdata('logged_in');
 
         $this->load->view('layout/header',$data);
-        $this->load->view('index');
+        $this->load->view('home/view');
         $this->load->view('layout/footer');
     }
 }
