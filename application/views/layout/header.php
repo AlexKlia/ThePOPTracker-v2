@@ -5,7 +5,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>coucou</title>
+        <title><?= $title ?></title>
 
         <!-- Google fonts -->
         <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:700|Luckiest+Guy|Roboto:400,400i,700" rel="stylesheet">
@@ -29,6 +29,14 @@
                 integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
                 crossorigin="anonymous">
         </script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+
+        <?php if(isset($scripts)) : ?>
+            <?php foreach ($scripts as $script) : ?>
+                <script src="<?= jsUrl($script); ?>"></script>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
     </head>
     <body>
 
@@ -52,12 +60,12 @@
                 <ul class="nav nav-tabs nav-justified  text-center list-inline col-sm-12 navHeader">
                     <?php if (!$logged) : ?>
                         <li class="col col-sm-4"><a href="#" class="h4 hr">Categorie</a></li>
-                        <li class="col col-sm-4"><a href="<?= site_url('user_authentication/login'); ?>" class="h4 hr">Connexion</a></li>
-                        <li class="col col-sm-4"><a href="#" class="h4 hr">Inscription</a></li>
+                        <li class="col col-sm-4"><a href="<?= site_url('user_authentification/login'); ?>" class="h4 hr">Connexion</a></li>
+                        <li class="col col-sm-4"><a href="<?= site_url('user_authentification/signIn'); ?>" class="h4 hr">Inscription</a></li>
                     <?php else : ?>
                         <li class="col col-sm-4"><a href="#" class="h4 hr">Collection</a></li>
                         <li class="col col-sm-4"><a href="#" class="h4 hr">WishList</a></li>
-                        <li class="col col-sm-4"><a href="<?= site_url('user_authentication/logout'); ?>" class="h4 hr">Deconnexion</a></li>
+                        <li class="col col-sm-4"><a href="<?= site_url('user_authentification/logout'); ?>" class="h4 hr">Deconnexion</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
@@ -82,8 +90,8 @@
                         <?php if (!$logged) : ?>
                             <li><a href="<?= site_url('Home/index'); ?>">Accueil</a></li>
                             <li><a href="#">Categorie</a></li>
-                            <li><a href="<?= site_url('user_authentication/login'); ?>">Connexion</a></li>
-                            <li><a href="#">Inscription</a></li>
+                            <li><a href="<?= site_url('user_authentification/login'); ?>">Connexion</a></li>
+                            <li><a href="<?= site_url('user_authentification/signIn'); ?>">Inscription</a></li>
                         <?php else : ?>
                             <li><a href="<?= site_url('Home/index'); ?>">Accueil</a></li>
                             <li><a href="#">Categorie</a></li>
@@ -101,7 +109,7 @@
         <div class="col col-sm-12 hidden-sm-down">
             <div class="col col-sm-offset-4 col-sm-4">
                 <div id="halfCircle">
-                    <a href="#">
+                    <a href="<?= site_url('Home/index'); ?>">
                         <?= img('logo.png','Logo ThePOPTracker','col col-sm-12 img-circle logo') ?>
                     </a>
                 </div>
