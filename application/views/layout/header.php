@@ -5,6 +5,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
+
         <title><?= $title ?></title>
 
         <!-- Google fonts -->
@@ -46,7 +47,7 @@
                 <ul class="nav nav-tabs nav-justified  text-center list-inline col-sm-12 navHeader">
                     <?php if ($logged) : ?>
                         <li class="col col-sm-4"><a href="<?= site_url('Home/index'); ?>" class="h4 hr">Accueil</a></li>
-                        <li class="col col-sm-4"><a href="#" class="h4 hr">Categorie</a></li>
+                        <li class="col col-sm-4"><a href="<?= site_url('Categorie') ?>" class="h4 hr">Categorie</a></li>
                         <li class="col col-sm-4"><a href="#" class="h4 hr">Profil</a></li>
                     <?php else : ?>
                         <li class="col col-sm-4"><a href="<?= site_url('Home/index'); ?>" class="h4 hr col col-sm-4">Accueil</a></li>
@@ -59,9 +60,11 @@
             <div class="col col-sm-4 nav-left">
                 <ul class="nav nav-tabs nav-justified  text-center list-inline col-sm-12 navHeader">
                     <?php if (!$logged) : ?>
-                        <li class="col col-sm-4"><a href="#" class="h4 hr">Categorie</a></li>
+
+                        <li class="col col-sm-4"><a href="<?= site_url('Categorie') ?>" class="h4 hr">Categorie</a></li>
                         <li class="col col-sm-4"><a href="<?= site_url('user_authentification/login'); ?>" class="h4 hr">Connexion</a></li>
                         <li class="col col-sm-4"><a href="<?= site_url('user_authentification/signIn'); ?>" class="h4 hr">Inscription</a></li>
+
                     <?php else : ?>
                         <li class="col col-sm-4"><a href="#" class="h4 hr">Collection</a></li>
                         <li class="col col-sm-4"><a href="#" class="h4 hr">WishList</a></li>

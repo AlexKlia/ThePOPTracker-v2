@@ -26,10 +26,11 @@ if ( ! function_exists('imgUrl'))
 
 if ( ! function_exists('img'))
 {
-    function img($name, $alt = '', $class='')
+    function img($name, $alt = '', $class='',$dataid='')
     {
         $img = '<img src="' . imgUrl($name) . '" alt="' . $alt . '"';
-        $img .= (!empty($class)) ? ' class="'.$class.'" />' : ' />';
+        $img .= (!empty($class)) ? ' class="'.$class.'"' : '';
+        $img .= (!empty($dataid)) ? ' data-id="'.$dataid.'" />':'/>';
 
         return $img;
     }

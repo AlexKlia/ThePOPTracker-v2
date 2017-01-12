@@ -53,3 +53,7 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['user_authentification/confirm/(:any)'] = 'user_authentification/confirm/$1';
 $route['translate_uri_dashes'] = FALSE;
+
+
+$route['Categorie']='Categorie/category';
+$route['Categorie/(:any)']='PopList/popList/$1';
